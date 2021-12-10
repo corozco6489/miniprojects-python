@@ -1,5 +1,7 @@
 import random
-def PasswordGenerator():
+n = int(input('Enter the size of the password you need: '))
+
+def PasswordGenerator(n):
 
     #define strings 
     lower='abcdefghijklmnopqrstuvwxyz'
@@ -8,9 +10,11 @@ def PasswordGenerator():
     special='!@$%&*'
     password=''
 
-    password= random.choice(lower)+random.choice(upper)+random.choice(special)+random.choice(number)
-    for i in range(2):
-        password= password + random.choice(lower)+random.choice(upper)+random.choice(special)+random.choice(number)
+    for i in range(n):
+        l= [random.choice(lower),random.choice(upper),random.choice(special),random.choice(number)]
+
+        password= password + random.choice(l)
+
     return password
 
-print(PasswordGenerator())
+print('Your password random is : ',PasswordGenerator(n))
